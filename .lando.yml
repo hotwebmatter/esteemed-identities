@@ -40,5 +40,5 @@ services:
       - echo "Overriding saml20-idp-hosted.php with conf for Lando"
       - ln -nfs /app/simplesaml/metadata/saml20-idp-hosted.php /app/vendor/simplesamlphp/simplesamlphp/metadata/saml20-idp-hosted.php
 
-      - echo "Clar all caches"
+      - echo "Clear all caches"
       - drush cr
