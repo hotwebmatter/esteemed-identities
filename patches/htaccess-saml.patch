@@ -1,0 +1,23 @@
+diff --git a/web/.htaccess b/web/.htaccess
+index 6f9123d..cacb3a3 100644
+--- a/web/.htaccess
++++ b/web/.htaccess
+@@ -143,6 +143,18 @@ AddEncoding gzip svgz
+   # Copy and adapt this rule to directly execute PHP files in contributed or
+   # custom modules or to run another PHP application in the same directory.
+   RewriteCond %{REQUEST_URI} !/core/modules/statistics/statistics.php$
++
++  # Allow access to simplesamlphp scripts.
++  RewriteCond %{REQUEST_URI} !/simplesaml/[^/]*\.php$
++  RewriteCond %{REQUEST_URI} !/simplesaml/admin/[^/]*\.php$
++  RewriteCond %{REQUEST_URI} !/simplesaml/[^/]*\.php/sanitycheck/[^/]*\.php$
++  RewriteCond %{REQUEST_URI} !/simplesaml/[^/]*\.php/drupalauth/[^/]*\.php$
++  RewriteCond %{REQUEST_URI} !/simplesaml/[^/]*\.php/core/idp/[^/]*\.php$
++  RewriteCond %{REQUEST_URI} !/simplesaml/[^/]*\.php/saml/[^/]*\.php$
++  RewriteCond %{REQUEST_URI} !/simplesaml/saml2/idp/[^/]*\.php$
++  RewriteCond %{REQUEST_URI} !/simplesaml/saml2/idp/[^/]*\.php/drupal-userpass$
++  RewriteCond %{REQUEST_URI} !/simplesaml/[^/]*\.php/saml/sp/[^/]*\.php/default-sp$
++
+   # Deny access to any other PHP files that do not match the rules above.
+   # Specifically, disallow autoload.php from being served directly.
+   RewriteRule "^(.+/.*|autoload)\.php($|/)" - [F]

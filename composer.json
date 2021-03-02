@@ -18,7 +18,8 @@
         "composer/installers": "^1.9",
         "drupal/core-composer-scaffold": "^9",
         "drupal/core-project-message": "^9",
-        "drupal/core-recommended": "^9"
+        "drupal/core-recommended": "^9",
+        "drupal/drupalauth4ssp": "^1.1"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -27,6 +28,11 @@
     "prefer-stable": true,
     "config": {
         "sort-packages": true
+    },
+    "scripts": {
+      "post-drupal-scaffold-cmd": [
+          "patch -p1 < patches/htaccess-saml.patch"
+      ]
     },
     "extra": {
         "drupal-scaffold": {
