@@ -1,11 +1,11 @@
 diff --git a/web/.htaccess b/web/.htaccess
-index 6f9123d..cacb3a3 100644
+index b1ee36b..16173d1 100644
 --- a/web/.htaccess
 +++ b/web/.htaccess
 @@ -143,6 +143,18 @@ AddEncoding gzip svgz
    # Copy and adapt this rule to directly execute PHP files in contributed or
    # custom modules or to run another PHP application in the same directory.
-   RewriteCond %{REQUEST_URI} !/core/modules/statistics/statistics.php$
+   RewriteCond %{REQUEST_URI} !/core/modules/statistics/statistics\.php$
 +
 +  # Allow access to simplesamlphp scripts.
 +  RewriteCond %{REQUEST_URI} !/simplesaml/[^/]*\.php$
